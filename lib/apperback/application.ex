@@ -7,6 +7,7 @@ defmodule Apperback.Application do
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
+
     mongo_url =
       case System.get_env("MIX_ENV") do
         "test" ->
@@ -17,6 +18,7 @@ defmodule Apperback.Application do
             fetch_env!(:apperback, :mongo_password)
           }@#{fetch_env!(:apperback, :mongo_host)}/#{fetch_env!(:apperback, :mongo_database)}?retryWrites=true&w=majority"
       end
+
     children = [
       # Start the Ecto repository
       # Apperback.Repo,

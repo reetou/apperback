@@ -19,11 +19,11 @@ config :apperback, ApperbackWeb.Endpoint,
   live_view: [signing_salt: "GTAkoCb9"]
 
 config :apperback,
- mongo_url: System.get_env("MONGO_URL"),
- mongo_username: System.get_env("MONGO_USERNAME"),
- mongo_password: System.get_env("MONGO_PASSWORD"),
- mongo_host: System.get_env("MONGO_HOST"),
- mongo_database: "apperback_dev"
+  mongo_url: System.get_env("MONGO_URL"),
+  mongo_username: System.get_env("MONGO_USERNAME"),
+  mongo_password: System.get_env("MONGO_PASSWORD"),
+  mongo_host: System.get_env("MONGO_HOST"),
+  mongo_database: "apperback_dev"
 
 # Configures Elixir's Logger
 config :logger, :console,

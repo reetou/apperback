@@ -3,7 +3,8 @@ defmodule Apperback.Project.Page do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @derive {Jason.Encoder, only: [:id, :name, :padding, :margin, :page_type, :background_color, :components]}
+  @derive {Jason.Encoder,
+           only: [:id, :name, :padding, :margin, :page_type, :background_color, :components]}
   @primary_key {:id, :binary_id, autogenerate: true}
   embedded_schema do
     field :name

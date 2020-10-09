@@ -6,7 +6,10 @@ defmodule Apperback.Project.Page.Component.Props do
     field :text, :string, default: ""
     field :disabled, :boolean, default: false
     field :rounded, :boolean, default: false
-    field :onClickType, Ecto.Enum, values: [:noop, :submit_form, :navigate_replace, :navigate_back, :navigate_push]
+
+    field :onClickType, Ecto.Enum,
+      values: [:noop, :submit_form, :navigate_replace, :navigate_back, :navigate_push]
+
     field :newPageId, Ecto.UUID
     field :imageUrl
     field :horizontalAlign, Ecto.Enum, values: [:center, :"flex-start", :"flex-end"]

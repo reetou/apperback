@@ -13,7 +13,7 @@ defmodule Apperback.Project do
   def changeset(%__MODULE__{} = module, attrs) do
     module
     |> cast(attrs, [
-      :project_name,
+      :project_name
     ])
     |> cast_embed(:pages)
     |> validate_required([:project_name, :pages])
