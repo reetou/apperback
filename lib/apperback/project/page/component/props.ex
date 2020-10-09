@@ -1,5 +1,6 @@
 defmodule Apperback.Project.Page.Component.Props do
   use Ecto.Schema
+  import Ecto.Changeset
 
   @derive Jason.Encoder
   embedded_schema do

@@ -1,6 +1,8 @@
 <component name="libraryTable">
   <library name="ex_aws_s3" type="mix">
-    <CLASSES />
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/ex_aws_s3/ebin" />
+    </CLASSES>
     <SOURCES>
       <root url="file://$PROJECT_DIR$/deps/ex_aws_s3/lib" />
     </SOURCES>

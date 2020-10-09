@@ -7,7 +7,7 @@ defmodule Apperback.Project.Page.Component do
   @derive {Jason.Encoder, only: [:id, :item_type, :props, :children]}
   @primary_key {:id, :binary_id, autogenerate: true}
   embedded_schema do
-    field :item_type, Ecto.Enum, [
+    field :item_type, Ecto.Enum, values: [
       :custom_input,
       :custom_generic_button,
       :custom_generic_button_rounded,

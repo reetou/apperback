@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba14062f-e272-4be2-90d1-12c06e232c86" name="Default Changelist" comment="" />
+    <list default="true" id="ba14062f-e272-4be2-90d1-12c06e232c86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/apperback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/apperback.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/certifi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/certifi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cors_plug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cors_plug.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ex_aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ex_aws.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ex_aws_s3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ex_aws_s3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hackney.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hackney.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hammer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hammer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hammer_plug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hammer_plug.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/idna.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/idna.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/metrics.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mimerl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mimerl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mongodb_driver.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mongodb_driver.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/parse_trans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/parse_trans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/unicode_util_compat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/unicode_util_compat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/waffle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/waffle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apperback/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/application.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apperback/project/page/component.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/project/page/component.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apperback/project/page/component/props.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/project/page/component/props.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apperback_web/controllers/project_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/controllers/project_controller.ex" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ieUdOInMuPEJdXzdaQO8jXSSfk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,6 +43,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -28,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602267637645</updated>
-      <workItem from="1602267640286" duration="4410000" />
+      <workItem from="1602267640286" duration="4552000" />
     </task>
     <servers />
   </component>
@@ -40,9 +69,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="488" y="266" width="703" height="518" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602267725905" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602272691320">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602272870881">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602272691320" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602272870881" />
   </component>
 </project>
