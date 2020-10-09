@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ex_machina" type="mix">
+    <CLASSES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/ex_machina/lib" />
+      <root url="file://$PROJECT_DIR$/deps/ex_machina/priv" />
+    </SOURCES>
+  </library>
+</component>

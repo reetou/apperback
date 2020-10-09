@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ex_aws" type="mix">
+    <CLASSES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/ex_aws/lib" />
+      <root url="file://$PROJECT_DIR$/deps/ex_aws/priv" />
+    </SOURCES>
+  </library>
+</component>
