@@ -14,7 +14,8 @@ config :apperback, Apperback.Repo,
 
 
 config :apperback,
-       mongo_db: "apperback_test"
+       mongo_db: "apperback_test",
+       mongo_pool_size: 4
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :apperback, ApperbackWeb.Endpoint,

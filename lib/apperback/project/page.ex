@@ -37,6 +37,7 @@ defmodule Apperback.Project.Page do
 
   def default_page do
     %__MODULE__{
+      id: Ecto.UUID.generate(),
       name: "Default Page",
       padding: [0, 0, 0, 0],
       margin: [0, 0, 0, 0],

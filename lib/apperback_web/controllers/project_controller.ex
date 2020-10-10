@@ -20,7 +20,7 @@ defmodule ApperbackWeb.ProjectController do
   end
 
   def update(conn, %{"id" => id, "project" => data}) do
-    with %Project{id: id} = project <- Project.get(id) do
+    with %Project{id: _} = project <- Project.get(id) do
       %Project{} = project = Project.update(project, data)
       json(conn, %{project: project})
     else

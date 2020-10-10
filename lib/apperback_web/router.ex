@@ -19,6 +19,7 @@ defmodule ApperbackWeb.Router do
     get "/", ProjectController, :list
     get "/:id", ProjectController, :show
     post "/", ProjectController, :create
+    put "/:id", ProjectController, :update
   end
 
   # Other scopes may use custom stacks.

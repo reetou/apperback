@@ -14,6 +14,11 @@ defmodule Apperback.Project do
 
   def collection, do: "projects"
 
+  def create_changeset(%__MODULE__{} = module, attrs) do
+    attrs = Map.drop(attrs, ["id"])
+    changeset(module, attrs)
+  end
+
   def changeset(%__MODULE__{} = module, attrs) do
     module
     |> cast(attrs, [
@@ -43,7 +48,7 @@ defmodule Apperback.Project do
 
   def create(%__MODULE__{} = module, attrs) do
     module
-    |> changeset(attrs)
+    |> create_changeset(attrs)
     |> Mongo.Adapter.insert()
   end
 

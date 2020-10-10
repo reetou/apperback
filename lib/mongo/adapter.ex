@@ -19,6 +19,10 @@ defmodule Mongo.Adapter do
        end
   end
 
+  def update_one_by(%Ecto.Changeset{changes: changes} = changeset, %{id: id} = query) when changes == %{} do
+    get_one_by(changeset.data, query)
+  end
+
   def update_one_by(%Ecto.Changeset{changes: changes} = changeset, %{id: id} = query) do
     :mongo
     |> Mongo.update_one(collection(changeset.data), query, %{
