@@ -1,7 +1,10 @@
 defmodule Apperback.Project.Page.Component do
   alias Apperback.Project.Page.Component
   alias Apperback.Project.Page.Component.Props
+
+  use MakeEnumerable
   use Ecto.Schema
+  import Apperback.Helpers
   import Ecto.Changeset
 
   @derive {Jason.Encoder, only: [:id, :item_type, :props, :children]}
@@ -22,11 +25,13 @@ defmodule Apperback.Project.Page.Component do
   def changeset(%__MODULE__{} = module, attrs) do
     module
     |> cast(attrs, [
+      :id,
       :item_type
     ])
+    |> autogenerate_id_if_not_exists()
     |> cast_embed(:props)
     |> cast_embed(:children)
-    |> validate_required([:item_type, :props, :children])
+    |> validate_required([:id, :item_type, :props, :children])
     |> validate_length(:children, max: 20)
   end
 end

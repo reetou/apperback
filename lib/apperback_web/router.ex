@@ -13,10 +13,12 @@ defmodule ApperbackWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ApperbackWeb do
+  scope "/projects", ApperbackWeb do
     pipe_through :api
 
     get "/", ProjectController, :list
+    get "/:id", ProjectController, :show
+    post "/", ProjectController, :create
   end
 
   # Other scopes may use custom stacks.

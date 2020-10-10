@@ -1,5 +1,6 @@
 defmodule Apperback.Project.Page.Component.Props do
   use Ecto.Schema
+  use MakeEnumerable
   import Ecto.Changeset
 
   @derive Jason.Encoder

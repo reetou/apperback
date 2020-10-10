@@ -20,10 +20,12 @@ config :apperback, ApperbackWeb.Endpoint,
 
 config :apperback,
   mongo_url: System.get_env("MONGO_URL"),
-  mongo_username: System.get_env("MONGO_USERNAME"),
-  mongo_password: System.get_env("MONGO_PASSWORD"),
-  mongo_host: System.get_env("MONGO_HOST"),
-  mongo_database: "apperback_dev"
+  mongo_pool_size: 2,
+  mongo_db: "apperback_dev"
+
+
+config :hammer,
+ backend: {Hammer.Backend.ETS, [expiry_ms: 60_000 * 60 * 2, cleanup_interval_ms: 60_000 * 10]}
 
 # Configures Elixir's Logger
 config :logger, :console,
