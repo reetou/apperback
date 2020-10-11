@@ -4,7 +4,6 @@ defmodule ApperbackWeb.ProjectController do
 
   use ApperbackWeb, :controller
 
-
   def list(conn, _) do
     json(conn, %{})
   end
@@ -33,9 +32,9 @@ defmodule ApperbackWeb.ProjectController do
     id
     |> Project.get()
     |> case do
-         nil -> ErrorResponse.render_error(conn, 404)
-         %Project{} = project -> json(conn, %{project: project})
-         {:error, _} = error -> error
-       end
+      nil -> ErrorResponse.render_error(conn, 404)
+      %Project{} = project -> json(conn, %{project: project})
+      {:error, _} = error -> error
+    end
   end
 end

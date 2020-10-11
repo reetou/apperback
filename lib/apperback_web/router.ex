@@ -1,6 +1,8 @@
 defmodule ApperbackWeb.Router do
   use ApperbackWeb, :router
 
+  import ApperbackWeb.Plugs.Authorize
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -9,17 +11,46 @@ defmodule ApperbackWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :authenticated do
+    plug :user_check
+  end
+
+  pipeline :user do
+    plug ApperbackWeb.AuthenticateToken,
+      user_context: Apperback.User,
+      token_module: ApperbackWeb.Auth.UserToken
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", ApperbackWeb do
+    pipe_through :api
+    pipe_through :user
+    pipe_through :authenticated
+
+    post "/check", AuthController, :check
+  end
+
+  scope "/auth", ApperbackWeb do
+    pipe_through :api
+    pipe_through :user
+
+    post "/sign", AuthController, :sign
+  end
+
   scope "/projects", ApperbackWeb do
     pipe_through :api
+    pipe_through :user
+    pipe_through :authenticated
 
     get "/", ProjectController, :list
     get "/:id", ProjectController, :show
     post "/", ProjectController, :create
     put "/:id", ProjectController, :update
+    post "/:project_id/pages", PageController, :create
+    put "/:project_id/pages/:id", PageController, :update
   end
 
   # Other scopes may use custom stacks.

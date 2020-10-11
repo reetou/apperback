@@ -8,6 +8,7 @@ defmodule ApperbackWeb.ErrorView do
   defp error_gettext(_detail) do
     Gettext.dgettext(ApperbackWeb.Gettext, "errors", "unknown error")
   end
+
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
   # def render("500.html", _assigns) do

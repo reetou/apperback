@@ -22,7 +22,9 @@ defmodule Apperback.Application do
       worker(Mongo, [
         [
           name: :mongo,
-          url: Application.fetch_env!(:apperback, :mongo_url) <> "/" <> Application.fetch_env!(:apperback, :mongo_db),
+          url:
+            Application.fetch_env!(:apperback, :mongo_url) <>
+              "/" <> Application.fetch_env!(:apperback, :mongo_db),
           pool_size: Application.fetch_env!(:apperback, :mongo_pool_size),
           pool_timeout: 20000,
           connect_timeout: 20000

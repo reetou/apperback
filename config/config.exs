@@ -23,9 +23,8 @@ config :apperback,
   mongo_pool_size: 2,
   mongo_db: "apperback_dev"
 
-
 config :hammer,
- backend: {Hammer.Backend.ETS, [expiry_ms: 60_000 * 60 * 2, cleanup_interval_ms: 60_000 * 10]}
+  backend: {Hammer.Backend.ETS, [expiry_ms: 60_000 * 60 * 2, cleanup_interval_ms: 60_000 * 10]}
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -83,5 +83,10 @@
     <orderEntry type="library" name="bypass" level="project" />
     <orderEntry type="library" name="configparser_ex" level="project" />
     <orderEntry type="library" name="poolboy" level="project" />
+    <orderEntry type="library" name="phx_gen_auth" level="project" />
+    <orderEntry type="library" name="phx_new" level="project" />
+    <orderEntry type="library" name="bcrypt_elixir" level="project" />
+    <orderEntry type="library" name="comeonin" level="project" />
+    <orderEntry type="library" name="elixir_make" level="project" />
   </component>
 </module>

@@ -29,11 +29,11 @@ defmodule ApperbackWeb.ChannelCase do
   end
 
   setup tags do
-#    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Apperback.Repo)
-#
-#    unless tags[:async] do
-#      Ecto.Adapters.SQL.Sandbox.mode(Apperback.Repo, {:shared, self()})
-#    end
+    #    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Apperback.Repo)
+    #
+    #    unless tags[:async] do
+    #      Ecto.Adapters.SQL.Sandbox.mode(Apperback.Repo, {:shared, self()})
+    #    end
 
     :ok
   end

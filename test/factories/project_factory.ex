@@ -12,7 +12,7 @@ defmodule ApperbackWeb.Factories.ProjectFactory do
     |> merge_attributes(attrs)
   end
 
-  def create_project do
-    %Project{} = Project.create_default_project()
+  def create_project(user_id) do
+    %Project{} = Project.create_default_project(user_id)
   end
 end
