@@ -1,5 +1,6 @@
 defmodule ApperbackWeb.ProjectControllerTest do
   use ApperbackWeb.ConnCase
+  alias Apperback.Project
   import ApperbackWeb.ProjectTestHelpers
   import ApperbackWeb.AuthTestHelpers
 
@@ -98,13 +99,19 @@ defmodule ApperbackWeb.ProjectControllerTest do
       assert is_list(project["pages"])
     end
 
-    test "Should not update id", %{conn: conn, project: %{id: id}} do
+    test "Should not update forbidden fields", %{
+      conn: conn,
+      project: %{id: id},
+      user: %{id: user_id}
+    } do
       client_id = "123"
+      assert user_id != client_id
 
       conn =
         put(conn, Routes.project_path(conn, :update, id), %{
           "project" => %{
-            "id" => client_id
+            "id" => client_id,
+            "user_id" => client_id
           }
         })
 
@@ -112,6 +119,8 @@ defmodule ApperbackWeb.ProjectControllerTest do
       assert is_map(project)
       assert is_binary(project["id"])
       assert project["id"] != client_id
+      assert is_binary(project["user_id"])
+      assert project["user_id"] == user_id
       assert is_binary(project["project_name"])
       assert is_list(project["pages"])
     end
@@ -127,6 +136,26 @@ defmodule ApperbackWeb.ProjectControllerTest do
         })
 
       assert json_response(conn, 401)
+    end
+
+    test "Should send error if user does not own selected project", %{
+      conn: conn,
+      user: %{id: user_id}
+    } do
+      %Project{id: id, user_id: project_user_id} =
+        Project.create_default_project("45#{DateTime.utc_now()}")
+
+      assert project_user_id != user_id
+
+      conn =
+        put(conn, Routes.project_path(conn, :update, id), %{
+          "project" => %{
+            "id" => "123",
+            user_id: "456"
+          }
+        })
+
+      assert json_response(conn, 404)
     end
   end
 end

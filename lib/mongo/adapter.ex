@@ -36,7 +36,6 @@ defmodule Mongo.Adapter do
     })
     |> case do
       {:ok, _} ->
-        IO.inspect(changeset.data, label: "Changeset data at update")
         get_one_by(changeset.data, query, coll)
 
       {:error, _} = error ->

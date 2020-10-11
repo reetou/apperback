@@ -12,11 +12,19 @@ defmodule ApperbackWeb.PageController do
     json(conn, %{project: project})
   end
 
+  def create(%{assigns: %{project: nil}} = conn, _) do
+    ErrorResponse.render_error(conn, 404)
+  end
+
   def update(%{assigns: %{project: %Project{id: project_id}}} = conn, %{
         "id" => id,
         "page" => page
       }) do
     %Project{} = project = Page.update(%Page{id: id}, project_id, page)
     json(conn, %{project: project})
+  end
+
+  def update(%{assigns: %{project: nil}} = conn, _) do
+    ErrorResponse.render_error(conn, 404)
   end
 end

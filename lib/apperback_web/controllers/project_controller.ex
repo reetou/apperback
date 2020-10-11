@@ -1,6 +1,7 @@
 defmodule ApperbackWeb.ProjectController do
   alias Apperback.Project
   alias ApperbackWeb.ErrorResponse
+  alias Apperback.User
 
   use ApperbackWeb, :controller
 
@@ -8,18 +9,21 @@ defmodule ApperbackWeb.ProjectController do
     json(conn, %{})
   end
 
-  def create(conn, %{"project" => project}) do
-    %Project{} = project = Project.create(%Project{}, project)
+  def create(%{assigns: %{current_user: %User{id: id}}} = conn, %{"project" => project}) do
+    %Project{} = project = Project.create(%Project{user_id: id}, project)
     json(conn, %{project: project})
   end
 
-  def create(conn, _params) do
-    %Project{} = project = Project.create_default_project()
+  def create(%{assigns: %{current_user: %User{id: id}}} = conn, _params) do
+    %Project{} = project = Project.create_default_project(id)
     json(conn, %{project: project})
   end
 
-  def update(conn, %{"id" => id, "project" => data}) do
-    with %Project{id: _} = project <- Project.get(id) do
+  def update(%{assigns: %{current_user: %User{id: user_id}}} = conn, %{
+        "id" => id,
+        "project" => data
+      }) do
+    with %Project{id: _} = project <- Project.get_for_user(user_id, id) do
       %Project{} = project = Project.update(project, data)
       json(conn, %{project: project})
     else
@@ -28,9 +32,9 @@ defmodule ApperbackWeb.ProjectController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    id
-    |> Project.get()
+  def show(%{assigns: %{current_user: %User{id: user_id}}} = conn, %{"id" => id}) do
+    user_id
+    |> Project.get_for_user(id)
     |> case do
       nil -> ErrorResponse.render_error(conn, 404)
       %Project{} = project -> json(conn, %{project: project})

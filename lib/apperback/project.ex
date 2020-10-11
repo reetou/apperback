@@ -5,7 +5,7 @@ defmodule Apperback.Project do
   import Apperback.Helpers
   import Ecto.Changeset
 
-  @derive {Jason.Encoder, only: [:id, :project_name, :pages]}
+  @derive {Jason.Encoder, only: [:id, :project_name, :pages, :user_id]}
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "projects" do
     field :project_name
@@ -36,10 +36,9 @@ defmodule Apperback.Project do
   def update_changeset(%__MODULE__{} = module, attrs) do
     module
     |> cast(attrs, [
-      :project_name,
-      :user_id
+      :project_name
     ])
-    |> validate_required([:project_name])
+    |> validate_required([:project_name, :user_id])
     |> validate_length(:project_name, min: 3, max: 100)
   end
 
@@ -49,7 +48,7 @@ defmodule Apperback.Project do
     |> Mongo.Adapter.update_one_by(%{id: id})
   end
 
-  def create(%__MODULE__{} = module, attrs) do
+  def create(%__MODULE__{user_id: user_id} = module, attrs) when is_binary(user_id) do
     module
     |> create_changeset(attrs)
     |> Mongo.Adapter.insert()

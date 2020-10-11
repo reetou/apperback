@@ -2,31 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba14062f-e272-4be2-90d1-12c06e232c86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/apperback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/apperback.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.exs" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/test.exs" beforeDir="false" afterPath="$PROJECT_DIR$/config/test.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/application.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback/helpers.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/helpers.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback/make_enumerable.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/make_enumerable.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/apperback/project.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/project.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback/project/page.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/project/page.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback/project/page/component.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback/project/page/component.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apperback_web/controllers/page_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/controllers/page_controller.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/apperback_web/controllers/project_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/controllers/project_controller.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback_web/error_response.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/error_response.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/router.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/templates/layout/app.html.eex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apperback_web/views/error_view.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apperback_web/views/error_view.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mongo/adapter.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mongo/adapter.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mix.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/apperback_web/controllers/page_controller_test.exs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apperback_web/controllers/page_controller_test.exs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/apperback_web/controllers/project_controller_test.exs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apperback_web/controllers/project_controller_test.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/factories/project_factory.ex" beforeDir="false" afterPath="$PROJECT_DIR$/test/factories/project_factory.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/support/channel_case.ex" beforeDir="false" afterPath="$PROJECT_DIR$/test/support/channel_case.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/support/conn_case.ex" beforeDir="false" afterPath="$PROJECT_DIR$/test/support/conn_case.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/support/data_case.ex" beforeDir="false" afterPath="$PROJECT_DIR$/test/support/data_case.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/support/project_test_helpers.ex" beforeDir="false" afterPath="$PROJECT_DIR$/test/support/project_test_helpers.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.exs" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.exs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602267637645</updated>
       <workItem from="1602267640286" duration="5035000" />
-      <workItem from="1602333622642" duration="29848000" />
+      <workItem from="1602333622642" duration="31209000" />
     </task>
     <servers />
   </component>
@@ -90,13 +72,13 @@
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602445891099" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1602344334011" />
-    <state x="488" y="266" width="703" height="518" key="find.popup" timestamp="1602450026762">
+    <state x="488" y="266" width="703" height="518" key="find.popup" timestamp="1602450605924">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="488" y="266" width="703" height="518" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602450026762" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602450121733">
+    <state x="488" y="266" width="703" height="518" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602450605924" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602451425848">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602450121733" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602451425848" />
   </component>
 </project>

@@ -2,6 +2,7 @@ defmodule ApperbackWeb.PageControllerTest do
   use ApperbackWeb.ConnCase
   import ApperbackWeb.ProjectTestHelpers
   import ApperbackWeb.AuthTestHelpers
+  alias Apperback.Project
 
   @moduletag :page
 
@@ -131,6 +132,25 @@ defmodule ApperbackWeb.PageControllerTest do
 
       validate_component_child(Enum.at(component["children"], 1), child2["id"])
     end
+
+    test "Should send error if user does not own selected project", %{
+      conn: conn,
+      user: %{id: user_id}
+    } do
+      %Project{id: id, user_id: project_user_id} =
+        Project.create_default_project("45#{DateTime.utc_now()}")
+
+      assert project_user_id != user_id
+
+      conn =
+        post(conn, Routes.page_path(conn, :create, id), %{
+          "page" => %{
+            "name" => "other_name"
+          }
+        })
+
+      assert json_response(conn, 404)
+    end
   end
 
   describe "Update page" do
@@ -244,6 +264,25 @@ defmodule ApperbackWeb.PageControllerTest do
       validate_component_child(Enum.at(component["children"], 0), child1["id"])
 
       validate_component_child(Enum.at(component["children"], 1), child2["id"])
+    end
+
+    test "Should send error if user does not own selected project", %{
+      conn: conn,
+      user: %{id: user_id}
+    } do
+      %Project{id: id, user_id: project_user_id, pages: [page | tail]} =
+        Project.create_default_project("45#{DateTime.utc_now()}")
+
+      assert project_user_id != user_id
+
+      conn =
+        put(conn, Routes.page_path(conn, :update, id, page.id), %{
+          "page" => %{
+            "name" => "some name"
+          }
+        })
+
+      assert json_response(conn, 404)
     end
   end
 end
