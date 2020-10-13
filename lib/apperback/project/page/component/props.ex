@@ -15,6 +15,16 @@ defmodule Apperback.Project.Page.Component.Props do
     field :newPageId, Ecto.UUID
     field :imageUrl
     field :horizontalAlign, Ecto.Enum, values: [:center, :"flex-start", :"flex-end"]
+    field :width, :integer
+    field :height, :integer
+    field :newPageName
+    field :backgroundColor
+    field :textColor
+    field :borderColor
+    field :inputPlaceholder
+    field :borderWidth, :integer
+    field :margin, :integer, default: 0
+    field :padding, :integer, default: 0
   end
 
   def changeset(%__MODULE__{} = module, attrs) do
