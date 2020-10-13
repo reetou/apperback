@@ -25,6 +25,10 @@ defmodule Apperback.Project.Page.Component.Props do
     field :borderWidth, :integer
     field :margin, :integer, default: 0
     field :padding, :integer, default: 0
+    field :childComponents, {:array, :map}, default: []
+    field :noImage, :boolean, default: false
+    field :noSubtitle, :boolean, default: false
+    field :listItemPrepend, Ecto.Enum, values: [:circle]
   end
 
   def changeset(%__MODULE__{} = module, attrs) do
