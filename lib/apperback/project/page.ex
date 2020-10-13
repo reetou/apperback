@@ -16,6 +16,8 @@ defmodule Apperback.Project.Page do
     field :padding, {:array, :integer}, default: [0, 0, 0, 0]
     field :margin, {:array, :integer}, default: [0, 0, 0, 0]
     field :page_type, Ecto.Enum, values: [:screen, :modal], default: :screen
+    field :nav_header_mode, Ecto.Enum, values: [:show, :hide], default: :show
+    field :nav_header_title, :string, default: "Header"
     field :background_color, :string, default: "#FFFFFF"
     embeds_many :components, Component
   end

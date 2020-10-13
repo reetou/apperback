@@ -18,6 +18,7 @@ defmodule Apperback.Project.Page.Component do
         :custom_text_block,
         :custom_image
       ]
+    field :data, :map
 
     embeds_one :props, Props
     embeds_many :children, Component
