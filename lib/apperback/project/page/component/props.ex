@@ -17,11 +17,11 @@ defmodule Apperback.Project.Page.Component.Props do
     field :horizontalAlign, Ecto.Enum, values: [:center, :"flex-start", :"flex-end"]
     field :width, :integer
     field :height, :integer
-    field :newPageName
+    field :newPageName, default: ""
     field :backgroundColor
     field :textColor
     field :borderColor
-    field :inputPlaceholder
+    field :inputPlaceholder, default: ""
     field :borderWidth, :integer
     field :margin, :integer, default: 0
     field :padding, :integer, default: 0
@@ -29,6 +29,9 @@ defmodule Apperback.Project.Page.Component.Props do
     field :noImage, :boolean, default: false
     field :noSubtitle, :boolean, default: false
     field :listItemPrepend, Ecto.Enum, values: [:circle]
+    field :fontSize, :integer, default: 14
+    field :fontWeight, :integer, default: 400
+    field :webPageUrl, :string, default: ""
   end
 
   def changeset(%__MODULE__{} = module, attrs) do

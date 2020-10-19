@@ -19,6 +19,7 @@ defmodule Apperback.Project.Page do
     field :nav_header_mode, Ecto.Enum, values: [:show, :hide], default: :show
     field :nav_header_title, :string, default: "Header"
     field :background_color, :string, default: "#FFFFFF"
+    field :first_page_id, :string, default: ""
     embeds_many :components, Component
   end
 
