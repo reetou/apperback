@@ -9,7 +9,18 @@ defmodule Apperback.Project.Page do
   require Logger
 
   @derive {Jason.Encoder,
-           only: [:id, :name, :padding, :margin, :page_type, :background_color, :components]}
+           only: [
+             :id,
+             :name,
+             :padding,
+             :margin,
+             :page_type,
+             :background_color,
+             :components,
+             :nav_header_mode,
+             :nav_header_title,
+             :first_page_id
+           ]}
   @primary_key {:id, :binary_id, autogenerate: true}
   embedded_schema do
     field :name
@@ -20,7 +31,7 @@ defmodule Apperback.Project.Page do
     field :nav_header_title, :string, default: "Header"
     field :background_color, :string, default: "#FFFFFF"
     field :first_page_id, :string, default: ""
-    embeds_many :components, Component
+    embeds_many :components, Component, on_replace: :delete
   end
 
   def create_changeset(%__MODULE__{} = module, attrs) do
@@ -37,7 +48,10 @@ defmodule Apperback.Project.Page do
       :padding,
       :margin,
       :page_type,
-      :background_color
+      :background_color,
+      :nav_header_title,
+      :nav_header_mode,
+      :first_page_id
     ])
     |> cast_embed(:components, with: &Component.create_changeset/2)
     |> validate()
@@ -51,7 +65,10 @@ defmodule Apperback.Project.Page do
       :padding,
       :margin,
       :page_type,
-      :background_color
+      :background_color,
+      :nav_header_title,
+      :nav_header_mode,
+      :first_page_id
     ])
     |> autogenerate_id_if_not_exists()
     |> cast_embed(:components)

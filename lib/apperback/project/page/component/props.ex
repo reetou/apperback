@@ -13,22 +13,21 @@ defmodule Apperback.Project.Page.Component.Props do
       values: [:noop, :submit_form, :navigate_replace, :navigate_back, :navigate_push]
 
     field :newPageId, Ecto.UUID
-    field :imageUrl
-    field :horizontalAlign, Ecto.Enum, values: [:center, :"flex-start", :"flex-end"]
+    field :imageUrl, :string, default: ""
+    field :horizontalAlign, :string, default: ""
     field :width, :integer
     field :height, :integer
-    field :newPageName, default: ""
+    field :newPageName, :string, default: ""
     field :backgroundColor
     field :textColor
     field :borderColor
-    field :inputPlaceholder, default: ""
+    field :inputPlaceholder, :string, default: ""
     field :borderWidth, :integer
     field :margin, :integer, default: 0
     field :padding, :integer, default: 0
-    field :childComponents, {:array, :map}, default: []
     field :noImage, :boolean, default: false
     field :noSubtitle, :boolean, default: false
-    field :listItemPrepend, Ecto.Enum, values: [:circle]
+    field :listItemPrepend, :string, default: ""
     field :fontSize, :integer, default: 14
     field :fontWeight, :integer, default: 400
     field :webPageUrl, :string, default: ""

@@ -25,7 +25,7 @@ defmodule ApperbackWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/auth", ApperbackWeb do
+  scope "/api/auth", ApperbackWeb do
     pipe_through :api
     pipe_through :user
     pipe_through :authenticated
@@ -33,14 +33,14 @@ defmodule ApperbackWeb.Router do
     post "/check", AuthController, :check
   end
 
-  scope "/auth", ApperbackWeb do
+  scope "/api/auth", ApperbackWeb do
     pipe_through :api
     pipe_through :user
 
     post "/sign", AuthController, :sign
   end
 
-  scope "/projects", ApperbackWeb do
+  scope "/api/projects", ApperbackWeb do
     pipe_through :api
     pipe_through :user
     pipe_through :authenticated

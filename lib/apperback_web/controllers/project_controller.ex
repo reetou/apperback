@@ -5,8 +5,8 @@ defmodule ApperbackWeb.ProjectController do
 
   use ApperbackWeb, :controller
 
-  def list(conn, _) do
-    json(conn, %{})
+  def list(%{assigns: %{current_user: %User{id: id}}} = conn, _) do
+    json(conn, %{projects: Project.list(id)})
   end
 
   def create(%{assigns: %{current_user: %User{id: id}}} = conn, %{"project" => project}) do

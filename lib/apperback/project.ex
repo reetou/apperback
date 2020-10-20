@@ -4,6 +4,7 @@ defmodule Apperback.Project do
   use MakeEnumerable
   import Apperback.Helpers
   import Ecto.Changeset
+  require Logger
 
   @derive {Jason.Encoder, only: [:id, :project_name, :pages, :user_id]}
   @primary_key {:id, :binary_id, autogenerate: true}
@@ -38,14 +39,29 @@ defmodule Apperback.Project do
     |> cast(attrs, [
       :project_name
     ])
+    |> cast_embed(:pages, with: &Page.update_changeset/2)
     |> validate_required([:project_name, :user_id])
     |> validate_length(:project_name, min: 3, max: 100)
   end
 
   def update(%__MODULE__{id: id} = module, attrs) do
-    module
-    |> update_changeset(attrs)
-    |> Mongo.Adapter.update_one_by(%{id: id})
+    data =
+      module
+      |> update_changeset(attrs)
+      |> apply_action!(:update_project)
+
+    :mongo
+    |> Mongo.update_one(collection(), %{"id" => id}, %{
+      "$set" => data
+    })
+    |> case do
+      {:ok, _} ->
+        Mongo.Adapter.get_one_by(%__MODULE__{}, %{"id" => id})
+
+      {:error, _} = error ->
+        Logger.error("Cannot update page and changes #{inspect(data)}: #{inspect(error)}")
+        error
+    end
   end
 
   def create(%__MODULE__{user_id: user_id} = module, attrs) when is_binary(user_id) do
@@ -66,5 +82,13 @@ defmodule Apperback.Project do
 
   def get(id) do
     Mongo.Adapter.get_one_by(%__MODULE__{}, %{id: id})
+  end
+
+  def list(user_id) do
+    :mongo
+    |> Mongo.find(collection(), %{user_id: user_id})
+    |> Enum.map(fn p -> changeset(%__MODULE__{}, p) end)
+    |> Enum.map(&apply_changes/1)
+    |> Enum.to_list()
   end
 end
