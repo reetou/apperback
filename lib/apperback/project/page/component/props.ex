@@ -10,14 +10,14 @@ defmodule Apperback.Project.Page.Component.Props do
     field :rounded, :boolean, default: false
 
     field :onClickType, Ecto.Enum,
-      values: [:noop, :submit_form, :navigate_replace, :navigate_back, :navigate_push]
+      values: [:noop, :submit_form, :navigate_replace, :navigate_back, :navigate_push],
+      default: :noop
 
     field :newPageId, Ecto.UUID
     field :imageUrl, :string, default: ""
     field :horizontalAlign, :string, default: ""
     field :width, :integer
     field :height, :integer
-    field :newPageName, :string, default: ""
     field :backgroundColor
     field :textColor
     field :borderColor
@@ -42,9 +42,31 @@ defmodule Apperback.Project.Page.Component.Props do
       :onClickType,
       :newPageId,
       :imageUrl,
-      :horizontalAlign
+      :horizontalAlign,
+      :width,
+      :height,
+      :backgroundColor,
+      :textColor,
+      :borderColor,
+      :inputPlaceholder,
+      :borderWidth,
+      :margin,
+      :padding,
+      :noImage,
+      :noSubtitle,
+      :listItemPrepend,
+      :fontSize,
+      :fontWeight,
+      :webPageUrl
     ])
     |> validate_length(:text, max: 256)
     |> validate_length(:imageUrl, max: 300)
+    |> validate_length(:newPageId, max: 128)
+    |> validate_length(:inputPlaceholder, max: 128)
+    |> validate_length(:webPageUrl, max: 256)
+    |> validate_length(:horizontalAlign, max: 32)
+    |> validate_length(:backgroundColor, max: 32)
+    |> validate_length(:textColor, max: 32)
+    |> validate_length(:borderColor, max: 32)
   end
 end

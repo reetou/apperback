@@ -18,8 +18,7 @@ defmodule Apperback.Project.Page do
              :background_color,
              :components,
              :nav_header_mode,
-             :nav_header_title,
-             :first_page_id
+             :nav_header_title
            ]}
   @primary_key {:id, :binary_id, autogenerate: true}
   embedded_schema do
@@ -30,7 +29,6 @@ defmodule Apperback.Project.Page do
     field :nav_header_mode, Ecto.Enum, values: [:show, :hide], default: :show
     field :nav_header_title, :string, default: "Header"
     field :background_color, :string, default: "#FFFFFF"
-    field :first_page_id, :string, default: ""
     embeds_many :components, Component, on_replace: :delete
   end
 
@@ -50,8 +48,7 @@ defmodule Apperback.Project.Page do
       :page_type,
       :background_color,
       :nav_header_title,
-      :nav_header_mode,
-      :first_page_id
+      :nav_header_mode
     ])
     |> cast_embed(:components, with: &Component.create_changeset/2)
     |> validate()
@@ -67,8 +64,7 @@ defmodule Apperback.Project.Page do
       :page_type,
       :background_color,
       :nav_header_title,
-      :nav_header_mode,
-      :first_page_id
+      :nav_header_mode
     ])
     |> autogenerate_id_if_not_exists()
     |> cast_embed(:components)

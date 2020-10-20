@@ -1,17 +1,31 @@
 defmodule Apperback.Project do
-  alias Apperback.Project.Page
+  alias Apperback.Project.{TabbarSettings, Onboarding, Page}
   use Ecto.Schema
   use MakeEnumerable
   import Apperback.Helpers
   import Ecto.Changeset
   require Logger
 
-  @derive {Jason.Encoder, only: [:id, :project_name, :pages, :user_id]}
+  @derive {Jason.Encoder,
+           only: [
+             :id,
+             :project_name,
+             :pages,
+             :user_id,
+             :tabbar_settings,
+             :onboarding,
+             :first_page_id,
+             :tabbar_enabled
+           ]}
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "projects" do
     field :project_name
     field :user_id
+    field :tabbar_enabled, :boolean, default: false
+    field :first_page_id, :string, default: ""
     embeds_many :pages, Page
+    embeds_one :tabbar_settings, TabbarSettings
+    embeds_one :onboarding, Onboarding
   end
 
   def collection, do: "projects"
@@ -30,6 +44,8 @@ defmodule Apperback.Project do
     ])
     |> autogenerate_id_if_not_exists()
     |> cast_embed(:pages)
+    |> cast_embed(:tabbar_settings)
+    |> cast_embed(:onboarding)
     |> validate_required([:id, :project_name, :pages, :user_id])
     |> validate_length(:project_name, min: 3, max: 100)
   end
@@ -40,6 +56,8 @@ defmodule Apperback.Project do
       :project_name
     ])
     |> cast_embed(:pages, with: &Page.update_changeset/2)
+    |> cast_embed(:tabbar_settings)
+    |> cast_embed(:onboarding)
     |> validate_required([:project_name, :user_id])
     |> validate_length(:project_name, min: 3, max: 100)
   end
