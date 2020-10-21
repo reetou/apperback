@@ -26,6 +26,8 @@ spec:
           value: {{ mongo_db }}
         - name: MONGO_URL
           value: {{ mongo_url }}
+        - name: SECRET_KEY_BASE
+          value: {{ secret_key_base }}
         ports:
         - containerPort: 4000
           protocol: TCP

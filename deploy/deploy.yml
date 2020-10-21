@@ -8,6 +8,7 @@
   vars:
     mongo_db: "{{ lookup('env', 'MONGO_DATABASE') }}"
     mongo_url: "{{ lookup('env', 'MONGO_URL') }}"
+    secret_key_base: "{{ lookup('env', 'SECRET_KEY_BASE') }}"
     mix_env: prod
   tasks:
     - block:
