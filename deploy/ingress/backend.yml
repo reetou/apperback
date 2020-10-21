@@ -1,0 +1,16 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-mekanix
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: project.mekanix.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: project-service
+              servicePort: 4000

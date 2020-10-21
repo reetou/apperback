@@ -1,0 +1,59 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/$TEST_IMAGE
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - _build/
+      - deps/
+  script:
+    - mix deps.get
+    - MIX_ENV=test mix test
+  tags:
+    - cached
+    - test
+
+build_kaniko:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  variables:
+    MIX_ENV: "prod"
+    BACKEND_IMAGE: "$CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHORT_SHA"
+  tags:
+    - build
+  allow_failure: true
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile prod.Dockerfile --destination $BACKEND_IMAGE
+  only:
+    refs:
+      - master
+
+deploy_prod:
+  stage: deploy
+  image: cytopia/ansible:2.9
+  variables:
+    BACKEND_IMAGE: "$CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHORT_SHA"
+  environment:
+    name: production
+    url: https://buhanka.app
+  before_script:
+    - apk add ansible curl
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
+    - kubectl version --client
+    - kubectl create secret docker-registry regcred --docker-server=$CI_REGISTRY --docker-username="$CI_DEPLOY_USER" --docker-password="$CI_DEPLOY_PASSWORD" --docker-email="$GITLAB_USER_EMAIL" --dry-run=true -o yaml | kubectl apply -f -
+  script:
+    - ansible-playbook deploy/deploy.yml -i deploy/inventory
+  when: manual
+  only:
+    refs:
+      - master
