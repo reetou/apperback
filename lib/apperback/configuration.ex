@@ -1,5 +1,8 @@
 defmodule Apperback.Configuration do
   def test_db() do
-    {:ok, _} = Mongo.find_one(:mongo, "projects", %{})
+    case Mongo.find_one(:mongo, "projects", %{}) do
+      {:error, _} = error -> error
+      _ -> :ok
+    end
   end
 end
