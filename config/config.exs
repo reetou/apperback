@@ -7,9 +7,6 @@
 # General application configuration
 use Mix.Config
 
-config :apperback,
-  ecto_repos: [Apperback.Repo]
-
 # Configures the endpoint
 config :apperback, ApperbackWeb.Endpoint,
   url: [host: "localhost"],
