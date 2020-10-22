@@ -26,7 +26,7 @@ defmodule ApperbackWeb.Router do
   end
 
   scope "/api/healthcheck", ApperbackWeb do
-    get("/", :index)
+    get "/", HealthcheckController, :index
   end
 
   scope "/api/auth", ApperbackWeb do
