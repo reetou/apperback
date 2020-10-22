@@ -51,7 +51,7 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#     config :fastmeal, FastmealWeb.Endpoint,
+#     config :apperback, ApperbackWeb.Endpoint,
 #       ...
 #       url: [host: "example.com", port: 443],
 #       https: [
