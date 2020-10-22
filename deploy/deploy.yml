@@ -6,6 +6,9 @@
   connection: local
   gather_facts: no
   vars:
+    registry: "{{ lookup('env', 'CI_REGISTRY_IMAGE') }}"
+    namespace: "{{ lookup('env', 'KUBE_NAMESPACE') }}"
+    commit_sha: "{{ lookup('env', 'CI_COMMIT_SHORT_SHA') }}"
     mongo_db: "{{ lookup('env', 'MONGO_DATABASE') }}"
     mongo_url: "{{ lookup('env', 'MONGO_URL') }}"
     secret_key_base: "{{ lookup('env', 'SECRET_KEY_BASE') }}"
