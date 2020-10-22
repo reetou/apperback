@@ -1,0 +1,11 @@
+deps/
+_build/
+.env
+.buildpacks
+.gitignore
+elixir_buildpack.config
+phoenix_static_buildpack.config
+Procfile
+assets/
+.circleci/
+deploy/
