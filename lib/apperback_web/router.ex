@@ -25,6 +25,10 @@ defmodule ApperbackWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api/healthcheck", ApperbackWeb do
+    get("/", :index)
+  end
+
   scope "/api/auth", ApperbackWeb do
     pipe_through :api
     pipe_through :user
