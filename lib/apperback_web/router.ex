@@ -55,6 +55,10 @@ defmodule ApperbackWeb.Router do
     put "/:id", ProjectController, :update
     post "/:project_id/pages", PageController, :create
     put "/:project_id/pages/:id", PageController, :update
+
+    post "/:project_id/build/ios", BuildController, :build_ios
+    post "/:project_id/build/android", BuildController, :build_android
+    post "/:project_id/publish", BuildController, :publish_bundle
   end
 
   # Other scopes may use custom stacks.

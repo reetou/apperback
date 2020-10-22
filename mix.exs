@@ -53,6 +53,7 @@ defmodule Apperback.MixProject do
       {:ex_aws_s3, "~> 2.0"},
       {:hammer, "~> 6.0"},
       {:hammer_plug, "~> 2.1"},
+      {:httpoison, "~> 1.6"},
       {:decimal, "~> 2.0", override: true}
     ]
   end

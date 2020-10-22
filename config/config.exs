@@ -18,7 +18,10 @@ config :apperback, ApperbackWeb.Endpoint,
 config :apperback,
   mongo_url: System.get_env("MONGO_URL"),
   mongo_pool_size: 2,
-  mongo_db: "apperback_dev"
+  mongo_db: "apperback_dev",
+  gitlab_project_id: System.get_env("GITLAB_PROJECT_ID"),
+  gitlab_trigger_token: System.get_env("GITLAB_TRIGGER_TOKEN"),
+  gitlab_project_access_token: System.get_env("GITLAB_PROJECT_ACCESS_TOKEN")
 
 config :hammer,
   backend: {Hammer.Backend.ETS, [expiry_ms: 60_000 * 60 * 2, cleanup_interval_ms: 60_000 * 10]}

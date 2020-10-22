@@ -41,7 +41,10 @@ config :apperback, ApperbackWeb.Endpoint,
 config :apperback,
   mongo_url: mongo_url,
   mongo_pool_size: 2,
-  mongo_db: mongo_db
+  mongo_db: mongo_db,
+  gitlab_project_id: System.get_env("GITLAB_PROJECT_ID"),
+  gitlab_trigger_token: System.get_env("GITLAB_TRIGGER_TOKEN"),
+  gitlab_project_access_token: System.get_env("GITLAB_PROJECT_ACCESS_TOKEN")
 
 # Do not print debug messages in production
 config :logger, level: :info
