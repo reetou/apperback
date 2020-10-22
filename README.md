@@ -1,20 +1,24 @@
 # Apperback
 
-To start your Phoenix server:
+Backend for mobile app builder - Apper (https://github.com/reetou/apper)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+User can store projects and build them. Build is happening inside gitlab CI runners when backend sends request to Gitlab Pipeline API (see `lib/apperback/project_build.ex`) to trigger pipeline job by name (ios, android, publish js bundle) in special repo that contains scripts for building and publishing React-Native app to Expo.io servers.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Sooner I realized that this project is not a one-man job and decided to abandon it. 
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+It worked tho.
 
-## Learn more
+I decided to omit auth part when building MVP until launch phase but it did not happen so there's no auth.
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+You can generate auth token this way:
+
+- `mix deps.get`
+- `iex -S mix`
+- Then type this in terminal: `ApperbackWeb.AuthService.sign(%Apperback.User{id: "123"})`
+- You will get token to use when sending requests to `/api/projects`
+
+### TODO
+1. Add these env vars to ansible config so it would work when deployed:
+    - GITLAB_PROJECT_ID
+    - GITLAB_TRIGGER_TOKEN
+    - GITLAB_PROJECT_ACCESS_TOKEN
